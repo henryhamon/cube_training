@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    .rp440 { width: 440px; height: 499px; }
+    .left { float: left; }
+  </style>
+</head>
+
+<h1>F2L</h1>
+<body>
+
+  <select id="alg">
+    <option value="R U R' ">Pesca na direita</option>
+    <option value="y L' U' L">Pesca na esquerda</option>
+    <option value="R U2 R' U R U2 R' d R' U' R">D3</option>
+    <option value="U' R U2 R' U R U R'">A1</option>
+    <option value="U' R U' R' U2 R U' R'">A2</option>
+    <option value="R U R' U' R U R' U' R U R'">A3</option>
+    <option value="y U L' U' L d' L U L'">C1</option>
+    <option value="U' R U R' d R' U' R">C2</option>
+    <option value="R U' R' y L' U2">C3</option>
+    <option value="R' U2 R2 U R2 U R">J1</option>
+    <option value="U' R U2' R' d R' U' R">J2</option>
+    <option value="R U2 R' U' R U R'">M1</option>
+    <option value="y L' U2' L U L' U' L">M2</option>
+  </select>
+
+  <button type="button"> Go!</button>
+
+  <div>
+    <div class="rp440 left" id="cube-1" ></div>
+  </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="roofpig_and_three.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+      $("button").click(function(){
+        $('#cube-1').empty();
+        alg = 'alg=' + $('#alg').val() + ' | flags=showalg';
+        CubeAnimation.create_in_dom('#cube-1', alg, "class='roofpig'");
+      });
+  });
+</script>
+
+</body>
